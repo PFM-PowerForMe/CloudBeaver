@@ -5,8 +5,11 @@
  * Licensed under the Apache License, Version 2.0.
  * you may not use this file except in compliance with the License.
  */
-import { connectionPlugin } from './manifest.js';
 
-export * from './ConnectionFormAccess/ConnectionFormAccessTabService.js';
-
-export default connectionPlugin;
+export interface IConnectionFormAccessTabState {
+  loading: boolean;
+  loaded: boolean;
+  grantedSubjects: string[];
+  initialGrantedSubjects: string[];
+  editing: boolean;
+}
