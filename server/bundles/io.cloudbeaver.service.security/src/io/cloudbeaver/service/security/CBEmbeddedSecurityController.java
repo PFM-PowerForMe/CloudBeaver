@@ -2298,6 +2298,9 @@ public class CBEmbeddedSecurityController<T extends ServletAuthApplication>
                     ? providerAuthData
                     : filterSecuredUserData(providerAuthData, getAuthProvider(authProviderId))
             );
+            if (authProvider.getInstance() instanceof SMAuthProviderExternal<?> authProviderExternal) {
+                authProviderExternal.postAuthentication();
+            }
         }
 
         String tokenAuthRole = updateUserAuthRoleIfNeeded(activeUserId, detectedAuthRole);
